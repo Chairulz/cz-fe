@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function fetchNotes() {
-        fetch("http://localhost:5000/notes")
+        fetch("https://czdockerbe-617681911777.us-central1.run.app/notes")
           .then(response => response.json())
           .then(data => {
             notesContainer.innerHTML = "";
