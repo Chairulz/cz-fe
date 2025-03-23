@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Fungsi untuk menambahkan catatan baru
     saveButton.addEventListener("click", function () {
-        fetch("http://localhost:5000/add-note", {
+        fetch("https://czdockerbe-617681911777.us-central1.run.app/add-note", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ title: titleInput.value, content: contentInput.value })
@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Fungsi untuk memperbarui catatan
     updateButton.addEventListener("click", function () {
-        fetch(`http://localhost:5000/edit-note/${editingNoteId}`, {
+        fetch(`https://czdockerbe-617681911777.us-central1.run.app/edit-note/${editingNoteId}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ title: editTitle.value, content: editContent.value })
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Fungsi untuk menghapus catatan
     function deleteNote(id) {
-        fetch(`http://localhost:5000/delete-note/${id}`, { method: "DELETE" })
+        fetch(`https://czdockerbe-617681911777.us-central1.run.app/delete-note/${id}`, { method: "DELETE" })
             .then(() => fetchNotes());
     }
 });
