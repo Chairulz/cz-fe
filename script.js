@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const URL = "https://note-backend-617681911777.us-central1.run.app/";
+    
     const notesContainer = document.getElementById("notesList");
     const saveButton = document.getElementById("saveNote");
     const titleInput = document.getElementById("noteTitle");
@@ -18,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function fetchNotes() {
-        fetch("https://czdockerbe-617681911777.us-central1.run.app/notes")
+        fetch("${URL}/notes")
           .then(response => response.json())
           .then(data => {
             notesContainer.innerHTML = "";
@@ -73,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Fungsi untuk menambahkan catatan baru
     saveButton.addEventListener("click", function () {
-        fetch("https://czdockerbe-617681911777.us-central1.run.app/add-note", {
+        fetch("${URL}/add-note", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ title: titleInput.value, content: contentInput.value })
@@ -87,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Fungsi untuk memperbarui catatan
     updateButton.addEventListener("click", function () {
-        fetch(`https://czdockerbe-617681911777.us-central1.run.app/edit-note/${editingNoteId}`, {
+        fetch(`${URL}/edit-note/${editingNoteId}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ title: editTitle.value, content: editContent.value })
@@ -99,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Fungsi untuk menghapus catatan
     function deleteNote(id) {
-        fetch(`https://czdockerbe-617681911777.us-central1.run.app/delete-note/${id}`, { method: "DELETE" })
+        fetch(`${URL}/delete-note/${id}`, { method: "DELETE" })
             .then(() => fetchNotes());
     }
 });
