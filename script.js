@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const URL = "https://note-backend-617681911777.us-central1.run.app/";
+    const URL = "https://czdockerbe-617681911777.us-central1.run.app";
     
     const notesContainer = document.getElementById("notesList");
     const saveButton = document.getElementById("saveNote");
